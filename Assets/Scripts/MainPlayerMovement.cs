@@ -14,6 +14,7 @@ public class MainPlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private bool canMoveLeft = true;
     private bool canMoveRight = true;
+    private Vector3 playerScreenPosition;
 
     private Animator animator;
     private Rigidbody rb;
@@ -47,7 +48,11 @@ public class MainPlayerMovement : MonoBehaviour
     void Update()
     {
         currentAnimationInfo = animator.GetCurrentAnimatorStateInfo(0);
-        Vector3 playerScreenPosition = Camera.main.WorldToScreenPoint(this.transform.position);
+
+        if(Camera.main != null)
+        {
+            playerScreenPosition = Camera.main.WorldToScreenPoint(this.transform.position);
+        }
 
         if(playerScreenPosition.x < 0)
         {
