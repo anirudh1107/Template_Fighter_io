@@ -536,6 +536,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainPlayerMovement
   moveSpeed: 0.02
+  jumpCooldown: 1
+  opponentPlayer: {fileID: 629740810}
 --- !u!136 &483951346
 CapsuleCollider:
   m_ObjectHideFlags: 0
