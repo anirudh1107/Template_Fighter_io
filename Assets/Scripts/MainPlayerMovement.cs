@@ -20,6 +20,8 @@ public class MainPlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private AnimatorStateInfo currentAnimationInfo;
 
+    private const int FlipLayerIndex = 1;
+
     public void OnMove(InputAction.CallbackContext context)
     {
         if(context.performed)
@@ -136,7 +138,7 @@ public class MainPlayerMovement : MonoBehaviour
         {
             facingRight = false;
             transform.GetChild(0).Rotate(0, 180, 0);
-            animator.SetLayerWeight(1, 1);
+            animator.SetLayerWeight(FlipLayerIndex, 1);
         }
     }
 
@@ -146,7 +148,7 @@ public class MainPlayerMovement : MonoBehaviour
         {
             facingRight = true;
             transform.GetChild(0).Rotate(0, 180, 0);
-            animator.SetLayerWeight(1, 0);
+            animator.SetLayerWeight(FlipLayerIndex, 0);
         }
     }
 
