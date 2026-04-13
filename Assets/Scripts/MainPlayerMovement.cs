@@ -35,6 +35,50 @@ public class MainPlayerMovement : MonoBehaviour
         }
     }
 
+    public void OnLightPunch(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            if (!currentAnimationInfo.IsTag("Crouching") && !currentAnimationInfo.IsTag("Jumping"))
+            {
+                animator.SetTrigger("LightPunch");
+            }
+        }
+    }
+
+    public void OnHeavyPunch(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            if(!currentAnimationInfo.IsTag("Crouching") && !currentAnimationInfo.IsTag("Jumping"))
+            {
+                animator.SetTrigger("HeavyPunch");
+            }
+        }
+    }
+
+    public void OnLightKick(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            if (!currentAnimationInfo.IsTag("Jumping"))
+            {
+                animator.SetTrigger("LightKick");
+            }
+        }
+    }
+
+    public void OnHeavyKick(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            if (!currentAnimationInfo.IsTag("Crouching"))
+            {
+                animator.SetTrigger("HeavyKick");
+            }
+        }
+    }
+
     private void Awake() {
         animator = this.transform.GetChild(0).GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody>();
