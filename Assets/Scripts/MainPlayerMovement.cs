@@ -14,6 +14,7 @@ public class MainPlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private bool canMoveLeft = true;
     private bool canMoveRight = true;
+    private bool isBlocking = false;
     private Vector3 playerScreenPosition;
 
     private Animator animator;
@@ -79,6 +80,23 @@ public class MainPlayerMovement : MonoBehaviour
         }
     }
 
+    public void OnBlock(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            if (currentAnimationInfo.IsTag("Moving"))
+            {
+                isBlocking = true;
+                animator.SetTrigger("BlockOn");
+            }
+        }
+        else if(context.canceled)
+        {
+            isBlocking = false;
+            animator.SetTrigger("BlockOff");
+        }
+     }
+
     private void Awake() {
         animator = this.transform.GetChild(0).GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody>();
@@ -137,12 +155,26 @@ public class MainPlayerMovement : MonoBehaviour
             {
                 if (moveDirection.x > 0 && canMoveRight)
                 {
-                    animator.SetBool("Forward", true);
+                    if (facingRight)
+                    {
+                        animator.SetBool("Forward", true);
+                    }
+                    else
+                    {
+                        animator.SetBool("Backward", true);
+                    }
                     this.transform.Translate(Vector3.right * moveSpeed);
                 }
                 else if (moveDirection.x < 0 && canMoveLeft)
                 {
-                    animator.SetBool("Backward", true);
+                    if (facingRight)
+                    {
+                        animator.SetBool("Backward", true);
+                    }
+                    else
+                    {
+                        animator.SetBool("Forward", true);
+                    }
                     this.transform.Translate(Vector3.left * moveSpeed);
                 }
             }
@@ -194,6 +226,11 @@ public class MainPlayerMovement : MonoBehaviour
             transform.GetChild(0).Rotate(0, 180, 0);
             animator.SetLayerWeight(FlipLayerIndex, 0);
         }
+    }
+
+    public bool isFacingRight()
+    {
+        return facingRight;
     }
 
     IEnumerator JumpCooldown()

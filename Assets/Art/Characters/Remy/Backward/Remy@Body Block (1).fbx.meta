@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ba089dbc39086134d990dc30201b056a
+guid: fa552c46d0cf1dc48b3642ff58575d7d
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Hurricane Kick
+      name: Body Block
       takeName: mixamo.com
       internalID: -203655887218126122
-      firstFrame: 0
-      lastFrame: 31
+      firstFrame: 28
+      lastFrame: 69
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
