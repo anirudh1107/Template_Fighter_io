@@ -70,6 +70,16 @@ public class PlayerAnimationAction : MonoBehaviour
         rb.AddForce(Vector3.up * flipForce, ForceMode.Impulse);
     }
 
+    public void PunchSoundAction()
+    {
+        AudioManager.Instance.PlayRandomPunchSound();
+    }
+
+    public void KickSoundAction()
+    {
+        AudioManager.Instance.PlayRandomKickSound();
+    }
+
     IEnumerator HeavyPunchMove()
     {
         isHeavyPunching = true;
