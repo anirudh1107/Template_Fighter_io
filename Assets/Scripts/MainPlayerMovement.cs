@@ -238,4 +238,27 @@ public class MainPlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(jumpCooldown);
         isJumping = false;
     }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.CompareTag("LightPunchHitbox"))
+        {
+            animator.SetTrigger("HeadReact");
+            AudioManager.Instance.PlayRandomLightPunchHitSound();
+        }
+        else if(other.CompareTag("HeavyPunchHitbox"))
+        {
+            animator.SetTrigger("HeavyReact");
+            AudioManager.Instance.PlayRandomHeavyPunchHitSound();
+        }
+        else if(other.CompareTag("LightKickHitbox"))
+        {
+            animator.SetTrigger("HeadReact");
+            AudioManager.Instance.PlayRandomLightKickHitSound();
+        }
+        else if(other.CompareTag("HeavyKickHitbox"))
+        {
+            animator.SetTrigger("KnockOut");
+            AudioManager.Instance.PlayRandomHeavyKickHitSound();
+        }
+    }
 }

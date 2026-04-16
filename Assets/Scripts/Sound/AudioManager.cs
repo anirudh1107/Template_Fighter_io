@@ -39,6 +39,18 @@ public class AudioManager : MonoBehaviour
         PlayRandomSound(soundCollection.kickSounds);
     }
 
+    public void PlayRandomLightPunchHitSound(){
+        PlayRandomSound(soundCollection.LightPunchHitSounds);}
+
+    public void PlayRandomLightKickHitSound(){
+        PlayRandomSound(soundCollection.LightKickHitSounds);}
+
+    public void PlayRandomHeavyPunchHitSound(){
+        PlayRandomSound(soundCollection.HeavyPunchHitSounds);}
+
+    public void PlayRandomHeavyKickHitSound(){
+        PlayRandomSound(soundCollection.HeavyKickHitSounds);}
+
      private void PlayRandomSound(SoundSo[] soundSoArray)
     {
         if (soundSoArray == null || soundSoArray.Length == 0) return;

@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - LightPunchHitbox
+  - HeavyPunchHitbox
+  - LightKickHitbox
+  - HeavyKickHitbox
   layers:
   - Default
   - TransparentFX

@@ -16,3 +16,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 633558b5e048b5d409bd5198002502ef, type: 2}
   kickSounds:
   - {fileID: 11400000, guid: 9ccec11c2f52b9f4cad059903ae24c80, type: 2}
+  LightPunchHitSounds:
+  - {fileID: 11400000, guid: ecca4708353eb6e4eac0da2b543509db, type: 2}
+  LightKickHitSounds:
+  - {fileID: 11400000, guid: e7ce25afa1017384899037be76c9cdb4, type: 2}
+  HeavyPunchHitSounds:
+  - {fileID: 11400000, guid: 03f5f3b66219c784da4acb113733589e, type: 2}
+  HeavyKickHitSounds:
+  - {fileID: 11400000, guid: 063f14760e39c314f8c3d38d4527d028, type: 2}
